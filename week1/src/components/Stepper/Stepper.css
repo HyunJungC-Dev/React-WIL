@@ -1,0 +1,81 @@
+.app {
+  --app-bg: #009cc1;
+  background: var(--app-bg);
+  width: 100%;
+  height: 100vh;
+}
+
+.stepper {
+  --stepper-bg: white;
+  --button-active: #061c24;
+  --button-disabled: #aaaaaa;
+  --font-size: 1rem/1.5;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--stepper-bg);
+  border-radius: calc(var(--font-size) * 10);
+  position: absolute;
+  width: auto;
+  height: auto;
+}
+
+.stepper.vertical {
+  flex-direction: column;
+  padding: calc(var(--font-size)) calc(var(--font-size) * 0.5);
+}
+
+.stepper.vertical .button {
+  transform: rotate(90deg);
+  margin: calc(var(--font-size) * 0.8) 0;
+}
+
+.stepper .output {
+  user-select: none;
+  padding: 0.1em 0.2em 0.1em 0.15em;
+  line-height: 1;
+  letter-spacing: -0.005em;
+  font-size: calc(var(--font-size) * 5);
+  font-weight: 550;
+  color: var(--app-bg);
+  transition: color 0.6s ease;
+}
+
+.stepper .output:focus {
+  outline: none;
+}
+
+.stepper .button {
+  user-select: none;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  width: var(--font-size);
+  height: var(--font-size);
+  margin: 0 calc(var(--font-size) * 1.5);
+  border: 0;
+  line-height: 1;
+  font-size: var(--font-size);
+  font-weight: 100;
+  background-color: white;
+  transition: all 0.4s ease;
+}
+
+.stepper .button:focus {
+  outline: none;
+}
+
+.stepper .button:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+
+.stepper .button:disabled svg path {
+  cursor: not-allowed;
+  fill: var(--button-disabled);
+}
+.stepper .button:disabled:hover {
+  transform: none;
+}
